@@ -1,0 +1,7 @@
+---
+# handlers file for cri-o
+
+- name: Start cri-o
+  systemd:
+    state: started
+    name: crio

@@ -1,0 +1,6 @@
+.imported_roles
+.gce-account.json
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.tfstate.lock.info
+.terraform/

@@ -1,0 +1,8 @@
+---
+# tasks file for kubernetes/worker
+
+- name: Join Kubernetes cluster
+  command: |
+    kubeadm join {{ hostvars[groups['_k8s_master'][0]]['ansible_default_ipv4'].address }}:6443 
+                 --token {{ kubeadm_token }} 
+                 --discovery-token-unsafe-skip-ca-verification

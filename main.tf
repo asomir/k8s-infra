@@ -1,0 +1,9 @@
+terraform {
+  required_version = "~> 0.11, < 0.12"
+}
+
+provider "google" {
+  project = "${var.project}"
+  region  = "${var.region}"
+  zone    = "${var.zone}"
+}

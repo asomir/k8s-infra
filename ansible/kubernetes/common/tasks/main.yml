@@ -1,0 +1,31 @@
+---
+# tasks file for kubernetes/common
+
+- name: Update repositories cache and install packages
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+  loop:
+    - apt-transport-https
+
+- name: Add apt signing key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+
+- name: Copy kubernetes.list file
+  copy:
+    src: kubernetes.list
+    dest: /etc/apt/sources.list.d/kubernetes.list
+
+- name: Update repositories cache and install packages
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+  loop:
+    - kubelet
+    - kubeadm
+    - kubectl
+
+- name: Reset previous cluster
+  command: kubeadm reset --force

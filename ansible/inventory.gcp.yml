@@ -1,0 +1,8 @@
+plugin: gcp_compute
+projects:
+  - k8s-sandbox-241113
+filters:
+keyed_groups: 
+  - key: tags['items']
+auth_kind: serviceaccount
+service_account_file: ./ansible/.gce-account.json

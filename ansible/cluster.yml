@@ -1,0 +1,35 @@
+- hosts: _k8s_master
+  become: true
+  gather_facts: true
+
+  roles:
+    - geerlingguy.docker
+    - kubernetes/common
+    - kubernetes/master
+
+- hosts: _k8s_worker_docker
+  become: true
+  gather_facts: true
+
+  roles:
+    - geerlingguy.docker
+    - kubernetes/common
+    - kubernetes/worker
+
+- hosts: _k8s_worker_cri_o
+  become: true
+  gather_facts: true
+
+  roles:
+    - cri-o
+    - kubernetes/common
+    - kubernetes/worker
+
+- hosts: _k8s_worker_containerd
+  become: true
+  gather_facts: true
+
+  roles:
+    - containerd
+    - kubernetes/common
+    - kubernetes/worker

@@ -1,0 +1,13 @@
+---
+# tasks file for kubernetes/master
+
+- name: Init Kubernetes cluster
+  command: kubeadm init --token {{ kubeadm_token }}
+
+- name: Creates directory
+  file:
+    path: /root/.kube
+    state: directory
+
+- name: Copy .kubeconfig for root user
+  command: cp /etc/kubernetes/admin.conf /root/.kube/config
