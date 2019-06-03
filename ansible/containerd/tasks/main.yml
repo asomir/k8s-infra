@@ -46,3 +46,6 @@
   notify:
     - Generate containerd config
     - Restart containerd
+
+- name: Flush handlers to properly restart containerd
+  meta: flush_handlers

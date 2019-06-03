@@ -21,8 +21,8 @@
   gather_facts: true
 
   roles:
-    - cri-o
     - kubernetes/common
+    - cri-o
     - kubernetes/worker
 
 - hosts: _k8s_worker_containerd
@@ -30,6 +30,6 @@
   gather_facts: true
 
   roles:
-    - containerd
     - kubernetes/common
+    - containerd
     - kubernetes/worker

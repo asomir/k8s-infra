@@ -36,3 +36,12 @@
     name: cri-o-1.11
     update_cache: yes
   notify: Start cri-o
+
+- name: Copy configuration file for kubelet
+  copy:
+    src: kubelet
+    dest: /etc/default/kubelet
+  notify: Restart kubelet
+
+- name: Flush handlers to properly restart cri-o
+  meta: flush_handlers
