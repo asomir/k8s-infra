@@ -1,13 +1,24 @@
 ---
 # tasks file for containerd
 
-- name: Copy sysctl file for runtime. Sysctl module does not work for this case
-  copy: 
-    src: 99-kubernetes-cri.conf
-    dest: /etc/sysctl.d/99-kubernetes-cri.conf
+- name: Add kernel modules for containerd
+  modprobe:
+    name: "{{ item }}"
+    state: present
+  loop: 
+    - overlay
+    - br_netfilter
 
-- name: Run sysctl --system
-  command: sysctl --system
+- name: Set sysctl for containerd installation
+  sysctl:
+    name: "{{ item }}"
+    value: 1
+    state: present
+    reload: yes
+  loop:
+    - net.bridge.bridge-nf-call-iptables
+    - net.ipv4.ip_forward
+    - net.bridge.bridge-nf-call-ip6tables
 
 - name: Update repositories cache and install packages for containerd
   apt:
