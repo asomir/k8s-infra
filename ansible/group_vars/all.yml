@@ -1,1 +1,2 @@
 kubeadm_token: 6twgup.ipzlx15w7lzqopuo
+pod_network_cidr: 10.244.0.0/16

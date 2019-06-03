@@ -43,5 +43,11 @@
     dest: /etc/default/kubelet
   notify: Restart kubelet
 
+- name: Copy configuration file for cri-o
+  copy:
+    src: crio.conf
+    dest: /etc/crio/crio.conf
+  notify: Restart cri-o
+
 - name: Flush handlers to properly restart cri-o
   meta: flush_handlers

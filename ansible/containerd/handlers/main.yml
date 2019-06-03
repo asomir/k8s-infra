@@ -2,7 +2,7 @@
 # handlers file for containerd
 
 - name: Generate containerd config
-  command: containerd config default > /etc/containerd/config.toml
+  shell: containerd config default > /etc/containerd/config.toml
 
 - name: Restart containerd
   systemd:
