@@ -8,7 +8,7 @@
   loop: 
     - overlay
     - br_netfilter
-    
+
 - name: Set sysctl for cri-o installation
   sysctl:
     name: "{{ item }}"
@@ -19,11 +19,6 @@
     - net.bridge.bridge-nf-call-iptables
     - net.ipv4.ip_forward
     - net.bridge.bridge-nf-call-ip6tables
-
-- name: Copy kubernetes.list file
-  copy:
-    src: 99-kubernetes-cri.conf
-    dest: /etc/apt/sources.list.d/kubernetes.list
 
 - name: Update repositories cache and install packages for cri-o
   apt:
