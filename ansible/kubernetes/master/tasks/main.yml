@@ -11,3 +11,7 @@
 
 - name: Copy kube config for root user
   command: cp /etc/kubernetes/admin.conf /root/.kube/config
+
+- name: Install flannel
+  command: "kubectl apply -f {{ flannel_url }}"
+  when: network_plugin == "flannel"

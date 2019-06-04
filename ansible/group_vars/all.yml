@@ -1,2 +1,4 @@
 kubeadm_token: 6twgup.ipzlx15w7lzqopuo
 pod_network_cidr: 10.244.0.0/16
+network_plugin: flannel
+flannel_url: https://raw.githubusercontent.com/coreos/flannel/62e44c867a2846fefb68bd5f178daf4da3095ccb/Documentation/kube-flannel.yml

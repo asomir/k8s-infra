@@ -5,6 +5,7 @@
   systemd:
     state: started
     name: crio
+    enabled: yes
 
 - name: Restart kubelet
   systemd:
