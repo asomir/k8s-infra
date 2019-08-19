@@ -10,7 +10,7 @@ variable private_key_path {
 
 variable project {
   description = "Project"
-  default     = "k8s-sandbox-241113"
+  default     = "otusplatform-kubespray"
 }
 
 variable region {

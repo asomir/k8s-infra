@@ -1,6 +1,6 @@
 plugin: gcp_compute
 projects:
-  - k8s-sandbox-241113
+  - otusplatform-kubespray
 filters:
 keyed_groups: 
   - key: tags['items']

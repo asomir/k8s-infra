@@ -5,7 +5,7 @@ resource "google_compute_instance" "k8s_master" {
 
   boot_disk {
     initialize_params {
-      image = "ubuntu-1604-lts"
+      image = "ubuntu-1804-lts"
     }
   }
 
@@ -28,7 +28,7 @@ resource "google_compute_instance" "k8s_worker_cri_o" {
 
   boot_disk {
     initialize_params {
-      image = "ubuntu-1604-lts"
+      image = "ubuntu-1804-lts"
     }
   }
 
@@ -51,7 +51,7 @@ resource "google_compute_instance" "k8s_worker_docker" {
 
   boot_disk {
     initialize_params {
-      image = "ubuntu-1604-lts"
+      image = "ubuntu-1804-lts"
     }
   }
 
@@ -74,7 +74,7 @@ resource "google_compute_instance" "k8s_worker_containerd" {
 
   boot_disk {
     initialize_params {
-      image = "ubuntu-1604-lts"
+      image = "ubuntu-1804-lts"
     }
   }
 
